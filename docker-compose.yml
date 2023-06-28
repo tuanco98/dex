@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  smurfi-be:
+    container_name: smurfi-be-0.0.0-$NODE_ENV
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "$GRAPHQL_PORT:$GRAPHQL_PORT"
+    env_file: .env
+    restart: always
+  cron-smurfi-be:
+    container_name: cron-smurfi-be-0.0.0-$NODE_ENV
+    build:
+      context: .
+      dockerfile: Dockerfile.cron
+    env_file: .env
+    restart: always

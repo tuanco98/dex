@@ -1,0 +1,62 @@
+{
+  "name": "dex-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scripts": "node script.mjs",
+    "inspect": "node --inspect --max-old-space-size=4096 dist/index.js",
+    "build": "rm -rf dist && tsc",
+    "start": "node --max-old-space-size=4096 dist/index.js",
+    "start_cron": "node --max-old-space-size=4096 dist/index.cron.js",
+    "dev": "ts-node src/index.ts",
+    "reset_consume": "ts-node src/scripts/reset_consume.ts",
+    "dep": "docker-compose -f docker-compose.yml up --build -d",
+    "dep:log": "docker-compose -f docker-compose.yml up --build",
+    "test": "ts-node src/test/index.ts",
+    "test:open_position_gas_less": "ts-node src/test/triggerOpenPositionGasLess.test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smurfiofficial/dex-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smurfiofficial/dex-backend/issues"
+  },
+  "homepage": "https://github.com/smurfiofficial/dex-backend#readme",
+  "devDependencies": {
+    "@types/bull": "^4.10.0",
+    "@types/ps-node": "^0.1.1",
+    "@types/request-ip": "^0.0.37",
+    "dotenv": "^16.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@airbnb/node-memwatch": "^2.0.0",
+    "@apollo/server": "^4.5.0",
+    "@apollo/server-plugin-landing-page-graphql-playground": "^4.0.0",
+    "@graphql-tools/schema": "^9.0.17",
+    "@pythnetwork/pyth-evm-js": "^1.1.0",
+    "@sentry/node": "^7.44.2",
+    "axios": "^1.3.4",
+    "bullmq": "^3.10.2",
+    "cron": "^2.3.0",
+    "graphql": "^16.6.0",
+    "graphql-redis-subscriptions": "^2.6.0",
+    "graphql-subscriptions": "^2.0.0",
+    "graphql-tag": "^2.12.6",
+    "graphql-ws": "^5.12.0",
+    "ioredis": "^5.3.1",
+    "mongodb": "^5.1.0",
+    "ps-node": "^0.1.6",
+    "request-ip": "^3.3.0",
+    "telegraf": "^4.12.2",
+    "uuid": "^9.0.0",
+    "viem": "^0.3.21",
+    "ws": "^8.13.0"
+  }
+}
